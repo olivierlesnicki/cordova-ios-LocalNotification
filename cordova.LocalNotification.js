@@ -33,7 +33,7 @@ window.addNotification = function(options) {
         function(notificationId) {
             window.setTimeout(function(){
                 if(typeof defaults.callBack == 'function'){
-                    defaults.callBack(notificationId) 
+                    defaults.callBack(notificationId);
                 }
             }, 1);
         }, 
