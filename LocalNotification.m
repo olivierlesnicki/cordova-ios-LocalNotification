@@ -14,7 +14,7 @@
     
     UILocalNotification* notif = [[UILocalNotification alloc] init];
 
-	double fireDate                 = [[command.arguments objectAtIndex:0] doubleValue];
+	double fireDate             = [[command.arguments objectAtIndex:0] doubleValue];
     NSString *alertBody         =  [command.arguments objectAtIndex:1];
     NSNumber *repeatInterval    =  [command.arguments objectAtIndex:2];
     NSString *soundName         =  [command.arguments objectAtIndex:3];
@@ -26,7 +26,11 @@
     notif.soundName         = soundName;
     notif.timeZone          = [NSTimeZone defaultTimeZone];
     
-	NSDictionary *userDict = [NSDictionary dictionaryWithObjectsAndKeys: notificationId, @"notificationId", command.callbackId, @"callbackId", nil];
+	NSDictionary *userDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                notificationId    , @"notificationId",
+                                command.callbackId, @"callbackId",
+                                nil
+                              ];
     
     notif.userInfo = userDict;
     
@@ -66,8 +70,8 @@
     CDVPluginResult* pluginResult = nil;
     NSString* javaScript          = nil;
     
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    javaScript = [pluginResult toSuccessCallbackString:[notif.userInfo objectForKey:@"callbackId"]];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: [notif.userInfo objectForKey:@"notificationId"]];
+    javaScript   = [pluginResult toSuccessCallbackString: [notif.userInfo objectForKey:@"callbackId"]];
     
     [self writeJavascript:javaScript];
     

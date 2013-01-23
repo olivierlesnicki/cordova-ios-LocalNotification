@@ -1,6 +1,5 @@
 /*!
  * Cordova 2.3.0+ LocalNotification plugin
- * version 0.1
  * Original author: Olivier Lesnicki
  */
 
@@ -9,12 +8,12 @@ window.addNotification = function(options) {
     var defaults = {
                 
         fireDate        : new Date(),
-        alertBody       : "This is a local notification",
+        alertBody       : "This is a local notification.",
         repeatInterval  : "" ,
         soundName       : "" ,
         badge           : 0  ,
         notificationId  : 1  ,
-        callBack        : null
+        callBack        : function(notificationId){ alert(notificationId); }
                 
     };
     
@@ -31,10 +30,12 @@ window.addNotification = function(options) {
     }    
                         
     cordova.exec(
-        function(notificationId) { 
-            if(typeof defaults.callBack == 'function'){
-                defaults.callBack(notificationId) 
-            }
+        function(notificationId) {
+            window.setTimeout(function(){
+                if(typeof defaults.callBack == 'function'){
+                    defaults.callBack(notificationId) 
+                }
+            }, 1);
         }, 
         null, 
         "LocalNotification" , 
