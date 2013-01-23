@@ -26,7 +26,7 @@ window.addNotification = function(options) {
     }
     
     if (typeof defaults.fireDate == 'object') {
-        defaults.fireDate = Math.round(defaults.fireDate.getTime()/1000 + 10);
+        defaults.fireDate = Math.round(defaults.fireDate.getTime()/1000);
     }    
                         
     cordova.exec(
