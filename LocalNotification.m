@@ -1,3 +1,9 @@
+/*!
+ * Cordova 2.3.0+ LocalNotification plugin
+ * Original author: Olivier Lesnicki
+ */
+
+
 #import "LocalNotification.h"
 #import <Cordova/CDV.h>
 
@@ -65,7 +71,7 @@
 - (void)didReceiveLocalNotification:(NSNotification *)notification
 {
     
-    UILocalNotification* notif  = [notification object]; // get the payload as a LocalNotification
+    UILocalNotification* notif  = [notification object];
     
     CDVPluginResult* pluginResult = nil;
     NSString* javaScript          = nil;
