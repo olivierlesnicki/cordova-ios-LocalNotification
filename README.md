@@ -6,12 +6,12 @@ A Cordova 2.3.0+ plugin to create local notifications on iOs by Olivier Lesnicki
 Installing the plugin
 ---------------------
 
-1. Place LocalNotification.m and LocalNotification.h in your Plugins folder
-2. Place cordova.localNotification.js in your www folder
+1. Place LocalNotification.m and LocalNotification.h in your `Plugins` folder
+2. Place cordova.localNotification.js in your `www` folder
 3. Link your index page to cordova.localNotification.js
 4. In config.xml add the following within the `<plugins>` tag
 
-    <plugin name="LocalNotification" value="LocalNotification" />
+    	<plugin name="LocalNotification" value="LocalNotification" />
 
 
 Using the plugin
