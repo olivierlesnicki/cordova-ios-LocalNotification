@@ -16,15 +16,15 @@ Installing the plugin
 
 In order to enable the notification listener we need to uncomment a number of lines in `CDVPlugin.m` and `CDVPlugin.h
 
-5. In `App/CordovaLib/Classes/CDVPlugin.m` uncomment the following line in `initWithWebView`
+5. In `CordovaLib/Classes/CDVPlugin.m` uncomment the following line in `initWithWebView`
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveLocalNotification:) name:CDVLocalNotification object:nil];
 
-6. In `App/CordovaLib/Classes/CDVPlugin.m` uncomment the following lines at the end of the file
+6. In `CordovaLib/Classes/CDVPlugin.m` uncomment the following lines at the end of the file
 
 		- (void)didReceiveLocalNotification:(NSNotification *)notification {}
 
-7. In `App/CordovaLib/Classes/CDVPlugin.h` uncomment the following line
+7. In `CordovaLib/Classes/CDVPlugin.h` uncomment the following line
 
 		 - (void)didReceiveLocalNotification:(NSNotification *)notification;
 
@@ -52,5 +52,6 @@ Using the plugin
 To Do
 -----
 
+- Implement badges (currently property is ignored)
 - JavaScript validation
 - Different callback if the app was in the background
