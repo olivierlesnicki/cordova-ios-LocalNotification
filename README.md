@@ -13,6 +13,16 @@ Installing the plugin
 
     	<plugin name="LocalNotification" value="LocalNotification" />
 
+5. In `App/CordovaLib/Classes/CDVPlugin.m` uncomment the following line in `initWithWebView`
+
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveLocalNotification:) name:CDVLocalNotification object:nil];
+
+6. In `App/CordovaLib/Classes/CDVPlugin.m` uncomment the following lines at the end of the file
+
+		- (void)didReceiveLocalNotification:(NSNotification *)notification
+		{}
+
+7. Place your .caf sound in your App `Resources` folder (not the `www` folder)
 
 Using the plugin
 ----------------
@@ -22,10 +32,10 @@ Using the plugin
     window.addNotification({
 		fireDate        : Math.round(new Date().getTime()/1000 + 5),
 		alertBody       : "This is a local notification.",
-		repeatInterval  : "" ,
-		soundName       : ""   ,
-		badge           : 0    ,
-		notificationId  : 123  ,
+		repeatInterval  : "daily",
+		soundName       : "beep.caf",
+		badge           : 0,
+		notificationId  : 123,
 		callBack        : function(notificationId){ 
 			alert("Hello World! This alert was triggered by notification" + notificationId); 
 		}    		

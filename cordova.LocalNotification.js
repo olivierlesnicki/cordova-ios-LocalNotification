@@ -4,19 +4,19 @@
  */
 
 window.addNotification = function(options) {
-    
+        
     var defaults = {
                 
-        fireDate        : new Date(),
+        fireDate        : new Date(new Date().getTime() + 5000),
         alertBody       : "This is a local notification.",
         repeatInterval  : "" ,
-        soundName       : "" ,
+        soundName       : "beep.caf" ,
         badge           : 0  ,
         notificationId  : 1  ,
-        callBack        : function(notificationId){ alert(notificationId); }
+        callBack        : function(notificationId){}
                 
     };
-    
+        
     if(options){
         for (var key in defaults) {
             if (typeof options[key] !== "undefined"){
@@ -27,8 +27,8 @@ window.addNotification = function(options) {
     
     if (typeof defaults.fireDate == 'object') {
         defaults.fireDate = Math.round(defaults.fireDate.getTime()/1000);
-    }    
-                        
+    }
+        
     cordova.exec(
         function(notificationId) {
             window.setTimeout(function(){

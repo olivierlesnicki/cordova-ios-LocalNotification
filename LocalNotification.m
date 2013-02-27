@@ -3,7 +3,6 @@
  * Original author: Olivier Lesnicki
  */
 
-
 #import "LocalNotification.h"
 #import <Cordova/CDV.h>
 
