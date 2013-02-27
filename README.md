@@ -14,6 +14,8 @@ Installing the plugin
 
     	<plugin name="LocalNotification" value="LocalNotification" />
 
+In order to enable the notification listener we need to uncomment a number of lines in `CDVPlugin.m` and `CDVPlugin.h
+
 5. In `App/CordovaLib/Classes/CDVPlugin.m` uncomment the following line in `initWithWebView`
 
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveLocalNotification:) name:CDVLocalNotification object:nil];
@@ -22,7 +24,11 @@ Installing the plugin
 
 		- (void)didReceiveLocalNotification:(NSNotification *)notification {}
 
-7. Place your `.caf sound in your App `Resources` folder (not the `www` folder)
+7. In `App/CordovaLib/Classes/CDVPlugin.h` uncomment the following line
+
+		 - (void)didReceiveLocalNotification:(NSNotification *)notification;
+
+8. Place your `.caf sound in your App `Resources` folder (not the `www` folder)
 
 
 Using the plugin
