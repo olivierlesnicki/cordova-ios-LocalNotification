@@ -52,10 +52,10 @@ window.addNotification = function(options) {
 };
     
 window.cancelNotification = function(str, callback) {
-    cordova.exec(null, null, "LocalNotification", "cancelNotification", null);
+    cordova.exec(callback, null, "LocalNotification", "cancelNotification", [str]);
 };
     
-window.cancelAllNotifications = function(str, callback) {
-    cordova.exec(null, null, "LocalNotification", "cancelAllNotifications", null);
+window.cancelAllNotifications = function(callback) {
+    cordova.exec(callback, null, "LocalNotification", "cancelAllNotifications", []);
 };
       
